@@ -10,27 +10,21 @@ for job in jobs:
     job_title = job.find('h2').text
 
     company_name = job.find('span', class_='companyName').text
+    print('')
+    print(f"Job Title: {job_title.strip()}")
+    print(f"Company Name: {company_name.strip()}")
     try:
         salary = job.find('div', class_='attribute_snippet').text
         if salary.split()[3] == "month":
             dir_salary = salary.split()[1]
-            print('')
-            print(f"Job Title: {job_title.strip()}")
-            print(f"Company Name: {company_name.strip()}")
             print(f"Salary: {dir_salary.strip()}")
 
         else:
             min_salary = salary.split()[1]
             max_salary = salary.split()[4]
-            print('')
-            print(f"Job Title: {job_title.strip()}")
-            print(f"Company Name: {company_name.strip()}")
             print(f"Salary: {min_salary.strip()} to {max_salary.strip()}")
 
     except:
         dir_salary = "no salary"
-        print('')
-        print(f"Job Title: {job_title.strip()}")
-        print(f"Company Name: {company_name.strip()}")
         print(f"Salary: {dir_salary.strip()}")
 

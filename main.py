@@ -65,7 +65,7 @@ try:
     max_page = soup.find('div', id='searchCountPages').text
     print(f'{max_page.split()[3]} max pages')
 except:
-    print("Try again or enter a number lower than 10 for safety.")
+    print("Try again or enter a number max 10 in the next entry.")
 
 max_page_by_user = int(input("Insert how many pages you want to extract (more pages, bigger data): "))
 
@@ -82,3 +82,4 @@ try:
     print("Data Generation Success")
 except:
     print("No results from given keywords")
+

@@ -4,6 +4,8 @@
 from bs4 import BeautifulSoup
 import requests
 from csv import writer
+import time
+
 
 # Function that generates the search URL based on the input Job Title of the user
 def urlGenerator():
@@ -28,6 +30,7 @@ def csv_maker():
 
 # Function that executes the webscraping where the parameter is the generated URL
 def searchStart(urlGet):
+    time.sleep(0.5)
     html_text = requests.get(urlGet).text
     soup = BeautifulSoup(html_text, 'lxml')
     with open('JobsSalary.csv', 'a+', encoding='utf8', newline='') as f:
